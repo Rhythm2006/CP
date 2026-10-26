@@ -34,7 +34,15 @@ int main(){
             flag = 1;
         }
     }
-    // if(res >= 0){
+    if(flag == 1){
+        cout << count << endl;
+    } else {
+        cout << -1 << endl;
+    }
+   }
+}
+
+// if(res >= 0){
     //     flag = 1;
     // } else {
     //     while(1){
@@ -63,10 +71,3 @@ int main(){
     //     }
         
     // }
-    if(flag == 1){
-        cout << count << endl;
-    } else {
-        cout << -1 << endl;
-    }
-   }
-}

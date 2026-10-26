@@ -54,3 +54,43 @@ int main(){
     vector<int> res = KMP(LPS,s1,s2);
     cout << res[0];
 }
+
+
+vector<int> lPS(vector<int> pattern){
+    vector<int> lps(pattern.size());
+    int length = 0;
+    lps[0] = 0;
+    int i = 1;
+    while(i<pattern.size())
+    {
+        if(pattern[i] == pattern[length]){
+            length++;
+            lps[i] = length;
+            i++;
+        } else if(length > 0){
+            length = lps[length-1];
+        } else {
+            i++;
+        }
+    }
+    return lps;
+}
+
+bool KMP(vector<int> pattern, vector<int> arr, vector<int> LPS){
+    int i = 0;
+    int j = 0;
+    while(i<arr.size()){
+        if(pattern[j] == arr[i]){
+            i++;
+            j++;
+        }
+        if(j == pattern.size()){
+            return true;
+        } else if(j>0){
+            j = LPS[j-1];
+        } else {
+            i++;
+        }
+    }
+    return false;
+}
